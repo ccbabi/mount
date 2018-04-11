@@ -1,0 +1,23 @@
+{
+  "name": "vm-mount",
+  "version": "1.0.0",
+  "description": "Mount the virtual node to the DOM.",
+  "main": "index.js",
+  "scripts": {
+    "postpublish": "git push origin master --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccbabi/mount.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ccbabi/mount/issues"
+  },
+  "homepage": "https://github.com/ccbabi/mount#readme",
+  "files": [
+    "index.js"
+  ]
+}
