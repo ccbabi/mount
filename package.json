@@ -1,6 +1,6 @@
 {
   "name": "vm-mount",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mount the virtual node to the DOM.",
   "main": "index.js",
   "scripts": {
