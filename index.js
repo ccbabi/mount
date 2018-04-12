@@ -1,14 +1,22 @@
+var doc = document
+var posMenu = ['replace', 'prepend', 'append', 'before', 'after']
+
 module.exports = function (refEle, pos) {
-  var doc = document
-  var posMenu = ['replace', 'prepend', 'append', 'before', 'after']
-  var id = Math.random().toString(36).slice(2)
-  var mount = doc.createElement('div')
-  var postion
+  var id, postion
 
   if (refEle) {
-    if (typeof refEle === 'string') {
-      if (refEle[0] !== '#') throw Error('When refEle is a string, it must start with a # and indicate an ID query.')
-      refEle = doc.getElementById(refEle.slice(1))
+    switch (typeof refEle) {
+      case 'string': {
+        if (refEle[0] !== '#') throw Error('When refEle is a string, it must start with a # and indicate an ID query.')
+        refEle = doc.getElementById(refEle.slice(1))
+        break
+      }
+      case 'object': {
+        if (refEle.nodeType !== 1) throw TypeError('RefEle can only be element nodes.')
+        break
+      }
+      default:
+        throw TypeError('RefEle can only be the element node or element node ID string.')
     }
   }
 
@@ -41,15 +49,16 @@ module.exports = function (refEle, pos) {
       return refEle
     }
     case 'prepend': {
-      return refEle.insertBefore(mount, refEle.childNodes[0])
+      return refEle.insertBefore(doc.createElement('div'), refEle.childNodes[0])
     }
     case 'append': {
-      return refEle.appendChild(mount)
+      return refEle.appendChild(doc.createElement('div'))
     }
     case 'before':
     case 'after': {
+      id = Math.random().toString(36).slice(2)
       postion = pos === 'before' ? 'beforebegin' : 'afterend'
-      refEle.insertAdjacentHTML(postion, '<div id="' + id + '"></div>')
+      refEle.insertAdjacentHTML(postion, '<div data-vm-mount="1" id="' + id + '"></div>')
       return document.getElementById(id)
     }
   }
