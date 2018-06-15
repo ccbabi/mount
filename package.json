@@ -1,10 +1,10 @@
 {
   "name": "vm-mount",
-  "version": "1.0.1",
-  "description": "Mount the virtual node to the DOM.",
+  "version": "1.0.2",
+  "description": "Mount htmlelements to the DOM tree",
   "main": "index.js",
   "scripts": {
-    "postpublish": "git push origin master --tags"
+    "postpublish": "git tag ${npm_package_version} && git push origin master --tags"
   },
   "repository": {
     "type": "git",
