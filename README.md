@@ -1,5 +1,5 @@
 # mount
-Mount the virtual node to the DOM.
+Mount HTMLElement to the DOM tree
 
 ## Install
 ```sh

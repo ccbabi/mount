@@ -1,7 +1,7 @@
 {
   "name": "vm-mount",
-  "version": "1.0.2",
-  "description": "Mount htmlelements to the DOM tree",
+  "version": "1.0.3",
+  "description": "Mount HTMLElement to the DOM tree",
   "main": "index.js",
   "scripts": {
     "postpublish": "git tag ${npm_package_version} && git push origin master --tags"
